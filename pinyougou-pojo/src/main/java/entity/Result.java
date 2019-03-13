@@ -13,6 +13,12 @@ public class Result implements Serializable {
 		this.success = success;
 		this.message = message;
 	}
+	
+
+	public Result() {
+		super();
+	}
+
 
 	public boolean isSuccess() {
 		return success;

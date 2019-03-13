@@ -1,8 +1,10 @@
 package com.pinyougou.sellergoods.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
@@ -15,7 +17,8 @@ import com.pinyougou.sellergoods.service.IBrandService;
 
 import entity.PageResult;
 
-@Service()
+@Service
+@Transactional
 public class BrandServiceImpl implements IBrandService{
 
 	@Autowired
@@ -91,5 +94,15 @@ public class BrandServiceImpl implements IBrandService{
 		}
 		
 	}
+	
+	/**
+	 * 查询select2 品牌关联下拉框数据
+	 * @return
+	 */
+	@Override
+	public List<Map> selectOptionList() {
+		return brandMapper.selectOptionList();
+	}
+	
 
 }
